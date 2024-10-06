@@ -23,14 +23,18 @@ def collaborative_filtering(user_id, purchases, products):
     recommended_indices = similarity.argsort()[0][-5:][::-1]
     recommended_products = product_features.index[recommended_indices].tolist()
 
-    return products[products['product_id'].isin(recommended_products)]
+    # Include product names in the output
+    recommended_df = products[products['product_id'].isin(recommended_products)]
+    recommended_df['recommendation_type'] = 'Collaborative'
+    return recommended_df[['product_id', 'product_name', 'price', 'rating', 'recommendation_type']]
+
 
 def content_based_filtering(user_id, purchases, products):
     # Example implementation: recommend products based on average ratings or other features
     user_purchases = purchases[purchases['user_id'] == user_id]
     purchased_product_ids = user_purchases['product_id'].unique()
 
-    # Compute average ratings for all products
+    # Compute total purchases for all products
     product_ratings = purchases.groupby('product_id')['quantity'].sum().reset_index()
     product_ratings.columns = ['product_id', 'total_purchases']
     top_products = product_ratings.sort_values(by='total_purchases', ascending=False)
@@ -38,5 +42,8 @@ def content_based_filtering(user_id, purchases, products):
     # Exclude products the user has already purchased
     recommendations = top_products[~top_products['product_id'].isin(purchased_product_ids)]
 
-    return products[products['product_id'].isin(recommendations['product_id'].head(5))]
+    # Include product names in the output
+    recommended_df = products[products['product_id'].isin(recommendations['product_id'].head(5))]
+    recommended_df['recommendation_type'] = 'Content-Based'
+    return recommended_df[['product_id', 'product_name', 'price', 'rating', 'recommendation_type']]
 

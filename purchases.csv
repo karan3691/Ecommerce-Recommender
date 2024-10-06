@@ -1,13 +1,12 @@
-purchase_id,user_id,product_id,quantity,purchase_date
-1,1,1,2,2024-01-15
-2,1,2,1,2024-02-10
-3,2,4,1,2024-03-05
-4,2,5,1,2024-03-12
-5,3,1,1,2024-01-20
-6,3,3,1,2024-02-25
-7,4,6,1,2024-03-01
-8,4,7,1,2024-04-10
-9,5,8,3,2024-02-18
-10,5,9,2,2024-03-22
-11,6,10,1,2024-04-05
-12,6,5,1,2024-04-20
+user_id,product_id,quantity
+1,1,1  # User 1 purchased 1 Red T-Shirt
+1,2,1  # User 1 purchased 1 Blue Jeans
+1,3,1  # User 1 purchased 1 Running Shoes
+2,4,1  # User 2 purchased 1 Smartwatch
+2,5,1  # User 2 purchased 1 Coffee Maker
+3,6,2  # User 3 purchased 2 Wireless Headphones
+3,1,1  # User 3 purchased 1 Red T-Shirt
+4,2,1  # User 4 purchased 1 Blue Jeans
+4,8,1  # User 4 purchased 1 Winter Jacket
+5,9,1  # User 5 purchased 1 Portable Charger
+5,10,1  # User 5 purchased 1 Gaming Laptop

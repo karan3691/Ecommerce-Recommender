@@ -27,7 +27,17 @@ def get_recommendations():
         message = "No recommendations available for this user."
         return render_template('recommendations.html', message=message)
 
-    return render_template('recommendations.html', recommendations=recommendations.to_dict(orient='records'))
+    # Format the recommendations to include product name, price, and rating
+    formatted_recommendations = []
+    for _, row in recommendations.iterrows():
+        formatted_recommendations.append({
+            'product_id': row['product_id'],
+            'product_name': row['product_name'],
+            'price': row['price'],
+            'rating': row['rating']
+        })
+
+    return render_template('recommendations.html', recommendations=formatted_recommendations)
 
 if __name__ == '__main__':
     app.run(debug=True)
