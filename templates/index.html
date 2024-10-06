@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendation System</title>
+</head>
+<body>
+    <h1>Welcome to the Product Recommendation System</h1>
+    <form action="/recommend" method="post">
+        <label for="user_id">User ID:</label>
+        <input type="text" name="user_id" required>
+        
+        <label for="method">Recommendation Method:</label>
+        <select name="method">
+            <option value="collaborative">Collaborative Filtering</option>
+            <option value="content-based">Content-Based Filtering</option>
+        </select>
+        
+        <button type="submit">Get Recommendations</button>
+    </form>
+</body>
+</html>

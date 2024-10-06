@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommendations</title>
+</head>
+<body>
+    <h1>Product Recommendations</h1>
+    
+    {% if message %}
+        <p>{{ message }}</p>
+    {% else %}
+        <ul>
+            {% for product in recommendations %}
+                <li>{{ product['product_id'] }} - ${{ product['price'] }} (Rating: {{ product['rating'] }})</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+    
+    <a href="/">Go back</a>
+</body>
+</html>

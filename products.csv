@@ -1,0 +1,11 @@
+product_id,product_name,category,description,price,rating
+1,Red T-Shirt,Apparel,"A bright red t-shirt",19.99,4.5
+2,Blue Jeans,Apparel,"Comfortable blue jeans",49.99,4.0
+3,Running Shoes,Sport,"Lightweight running shoes",89.99,4.8
+4,Smartwatch,Electronics,"Feature-packed smartwatch",199.99,4.2
+5,Coffee Maker,Home,"Automatic coffee maker for coffee lovers",99.99,4.1
+6,Wireless Headphones,Electronics,"Noise-cancelling headphones",149.99,4.7
+7,Graphic Tee,Apparel,"Stylish graphic t-shirt",24.99,4.3
+8,Winter Jacket,Apparel,"Warm winter jacket",99.99,4.6
+9,Portable Charger,Electronics,"High-capacity portable charger",29.99,4.4
+10,Gaming Laptop,Electronics,"High-performance gaming laptop",1299.99,4.9
