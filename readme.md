@@ -66,5 +66,11 @@ If you would like to contribute to this project, please fork the repository and 
 
 - **Enhanced Purchase Data**: The `purchases.csv` file will be updated with more transaction records to better analyze user behavior and improve recommendation accuracy.
 
+## Known Issues
+
+In collaborative fitlerting it shows "no recommendation for this users" and is mostly happening with most of user_id.
+
+POSSIBLE ISSUES: Data Integrity Or Data Insufficient
+
 
    
