@@ -8,6 +8,8 @@ app = Flask(__name__)
 users = pd.read_csv('users.csv')  # Ensure this file exists
 products = pd.read_csv('products.csv')  # Ensure this file exists
 purchases = pd.read_csv('purchases.csv')  # Ensure this file exists
+browsing_history = pd.read_csv('browsing_history.csv')  # Ensure this file exists
+
 
 @app.route('/')
 def index():
@@ -16,18 +18,21 @@ def index():
 @app.route('/recommend', methods=['POST'])
 def get_recommendations():
     user_id = int(request.form['user_id'])
-    method = request.form['method']  # Assume you have a dropdown for method selection
+    method = request.form['method']  
 
     if method == 'collaborative':
-        recommendations = collaborative_filtering(user_id, purchases, products)
+        recommendations = collaborative_filtering(user_id, purchases, browsing_history, products)
     elif method == 'content-based':
-        recommendations = content_based_filtering(user_id, purchases, products)
+        recommendations = content_based_filtering(user_id, purchases, browsing_history, products)
 
     if recommendations.empty:
         message = "No recommendations available for this user."
         return render_template('recommendations.html', message=message)
 
-    # Format the recommendations to include product name, price, and rating
+    print(recommendations)  # debug
+    return render_template('recommendations.html', recommendations=recommendations.to_dict(orient='records'))
+
+
     formatted_recommendations = []
     for _, row in recommendations.iterrows():
         formatted_recommendations.append({
