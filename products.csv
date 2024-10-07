@@ -1,51 +1,11 @@
 product_id,product_name,category,description,price,rating
-1,Red T-Shirt,Apparel,"A bright red t-shirt",19.99,4.5
-2,Blue Jeans,Apparel,"Comfortable blue jeans",49.99,4.0
-3,Running Shoes,Sport,"Lightweight running shoes",89.99,4.8
-4,Smartwatch,Electronics,"Feature-packed smartwatch",199.99,4.2
-5,Coffee Maker,Home,"Automatic coffee maker for coffee lovers",99.99,4.1
-6,Wireless Headphones,Electronics,"Noise-cancelling headphones",149.99,4.7
-7,Graphic Tee,Apparel,"Stylish graphic t-shirt",24.99,4.3
-8,Winter Jacket,Apparel,"Warm winter jacket",99.99,4.6
-9,Portable Charger,Electronics,"High-capacity portable charger",29.99,4.4
-10,Gaming Laptop,Electronics,"High-performance gaming laptop",1299.99,4.9
-11,Black Hoodie,Apparel,"Cozy black hoodie",39.99,4.5
-12,Sneakers,Sport,"Versatile everyday sneakers",74.99,4.2
-13,Tablet,Electronics,"10-inch tablet with high resolution",299.99,4.4
-14,LED Monitor,Electronics,"27-inch LED monitor",199.99,4.3
-15,Electric Kettle,Home,"Rapid boil electric kettle",39.99,4.1
-16,Office Chair,Furniture,"Ergonomic office chair for comfort",149.99,4.6
-17,Backpack,Apparel,"Durable backpack for school and travel",49.99,4.5
-18,Smartphone,Electronics,"Latest model smartphone",799.99,4.8
-19,Digital Camera,Electronics,"Compact digital camera for photography",499.99,4.7
-20,Fitness Tracker,Sport,"Wearable fitness tracker",79.99,4.5
-21,Scented Candle,Home,"Lavender scented candle",19.99,4.2
-22,Wireless Mouse,Electronics,"Ergonomic wireless mouse",29.99,4.4
-23,Noise Machine,Home,"White noise machine for better sleep",49.99,4.3
-24,Blender,Home,"Powerful blender for smoothies",79.99,4.6
-25,Guitar,Musical Instruments,"Acoustic guitar for beginners",199.99,4.5
-26,Travel Mug,Home,"Insulated travel mug for coffee",24.99,4.2
-27,Desk Lamp,Home,"LED desk lamp with adjustable brightness",39.99,4.4
-28,Action Camera,Electronics,"Compact action camera for adventures",299.99,4.7
-29,VR Headset,Electronics,"Immersive virtual reality headset",399.99,4.5
-30,Camping Tent,Sport,"Portable camping tent for outdoor adventures",129.99,4.6
-31,Gaming Console,Electronics,"Latest gaming console with top games",499.99,4.9
-32,Laptop Stand,Furniture,"Adjustable laptop stand for ergonomics",39.99,4.3
-33,Home Speaker,Electronics,"Smart speaker with excellent sound",149.99,4.8
-34,Action Figures,Toys,"Collectible action figures for fans",19.99,4.0
-35,Drone,Electronics,"High-resolution camera drone",499.99,4.8
-36,E-reader,Electronics,"Portable e-reader for book lovers",129.99,4.4
-37,Fitness Mat,Sport,"Non-slip yoga and fitness mat",39.99,4.5
-38,Ski Goggles,Sport,"Protective goggles for skiing",49.99,4.6
-39,Winter Boots,Apparel,"Waterproof winter boots for cold weather",89.99,4.7
-40,Air Purifier,Home,"High-efficiency air purifier",199.99,4.5
-41,Coffee Grinder,Home,"Electric coffee grinder for fresh coffee",29.99,4.3
-42,Wireless Earbuds,Electronics,"Truly wireless earbuds with great sound",99.99,4.6
-43,Smart Thermostat,Home,"Programmable thermostat for energy savings",149.99,4.4
-44,Pet Bed,Pets,"Comfortable bed for pets",39.99,4.2
-45,Electric Toothbrush,Home,"Rechargeable electric toothbrush",49.99,4.5
-46,Board Game,Toys,"Fun board game for family nights",29.99,4.0
-47,Guitar Stand,Musical Instruments,"Adjustable stand for guitars",19.99,4.3
-48,Luggage Set,Travel,"Durable luggage set for travelers",199.99,4.6
-49,Smart Light Bulb,Home,"Smart bulb with adjustable colors",19.99,4.5
-50,Rice Cooker,Home,"Easy-to-use rice cooker for meals",49.99,4.3
+1,Red T-Shirt,Clothing,A stylish red t-shirt,19.99,4.5
+2,Blue Jeans,Clothing,Comfortable blue jeans,49.99,4.0
+3,Running Shoes,Sports,Lightweight running shoes,69.99,4.8
+4,Smartwatch,Electronics,A feature-rich smartwatch,199.99,4.2
+5,Coffee Maker,Home,A premium coffee maker,89.99,4.6
+6,Wireless Headphones,Electronics,Noise-cancelling headphones,149.99,4.3
+7,Graphic Tee,Clothing,Creative graphic t-shirt,24.99,4.7
+8,Winter Jacket,Clothing,Warm winter jacket,129.99,4.4
+9,Portable Charger,Electronics,High-capacity portable charger,39.99,4.5
+10,Gaming Laptop,Electronics,A powerful laptop for gaming,1299.99,4.9

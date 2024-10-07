@@ -3,26 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Product Recommendation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>E-commerce Recommendations</title>
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5">Welcome to the Product Recommendation System</h1>
-        <form action="/recommend" method="post" class="mt-4">
-            <div class="form-group">
-                <label for="user_id">User ID:</label>
-                <input type="number" name="user_id" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="method">Recommendation Method:</label>
-                <select name="method" class="form-control" required>
-                    <option value="collaborative">Collaborative Filtering</option>
-                    <option value="content-based">Content-Based Filtering</option>
-                </select>
-            </div>
-            <button type="submit" class="btn btn-primary">Get Recommendations</button>
+        <h1>Product Recommendations</h1>
+        <form action="/recommend" method="post">
+            <input type="number" name="user_id" placeholder="User ID" required>
+            <select name="algorithm" required>
+                <option value="collaborative">Collaborative Filtering</option>
+                <option value="content-based">Content-Based Filtering</option>
+                <option value="hybrid">Hybrid Approach</option>
+            </select>
+            <button type="submit">Get Recommendations</button>
         </form>
+        <h2>Available Products</h2>
+        <ul>
+            {% for product in products %}
+                <li>{{ product.product_name }} - ${{ product.price }} (Rating: {{ product.rating }})</li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>

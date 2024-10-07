@@ -3,24 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Recommendations</title>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Recommendations</title>
 </head>
 <body>
-    <h1>Product Recommendations</h1>
-    
-    {% if recommendations %}
-        <ul>
-            {% for product in recommendations %}
-                <li>
-                    {{ product['product_name'] }} - ${{ product['price'] }} (Rating: {{ product['rating'] }}) [{{ product['source'] }}]
-                </li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>{{ message }}</p>
-    {% endif %}
-    
-    <a href="/">Go back</a> 
+    <div class="container">
+        <h1>Product Recommendations</h1>
+        
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% else %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Rating</th>
+                        <th>Source</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for recommendation in recommendations %}
+                        <tr>
+                            <td>{{ recommendation.product_id }}</td>
+                            <td>{{ recommendation.product_name }}</td>
+                            <td>${{ recommendation.price }}</td>
+                            <td>{{ recommendation.rating }}</td>
+                            <td>{{ recommendation.source }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+        
+        <a href="/" class="back-button">Back to Home</a>
+    </div>
 </body>
 </html>

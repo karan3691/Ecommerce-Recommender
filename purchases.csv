@@ -1,68 +1,13 @@
 user_id,product_id,quantity
-1,1,1  # User 1 purchased 1 Red T-Shirt
-1,2,1  # User 1 purchased 1 Blue Jeans
-1,3,1  # User 1 purchased 1 Running Shoes
-2,4,1  # User 2 purchased 1 Smartwatch
-2,5,1  # User 2 purchased 1 Coffee Maker
-3,6,2  # User 3 purchased 2 Wireless Headphones
-3,1,1  # User 3 purchased 1 Red T-Shirt
-4,2,1  # User 4 purchased 1 Blue Jeans
-4,8,1  # User 4 purchased 1 Winter Jacket
-5,9,1  # User 5 purchased 1 Portable Charger
-5,10,1  # User 5 purchased 1 Gaming Laptop
-6,3,1  # User 6 purchased 1 Running Shoes
-6,4,1  # User 6 purchased 1 Smartwatch
-7,1,2  # User 7 purchased 2 Red T-Shirts
-7,7,1  # User 7 purchased 1 Graphic Tee
-8,2,2  # User 8 purchased 2 Blue Jeans
-8,5,1  # User 8 purchased 1 Coffee Maker
-9,6,1  # User 9 purchased 1 Wireless Headphones
-10,4,1  # User 10 purchased 1 Smartwatch
-10,5,1  # User 10 purchased 1 Coffee Maker
-11,1,1  # User 11 purchased 1 Red T-Shirt
-11,8,1  # User 11 purchased 1 Winter Jacket
-12,2,1  # User 12 purchased 1 Blue Jeans
-12,3,1  # User 12 purchased 1 Running Shoes
-13,4,2  # User 13 purchased 2 Smartwatches
-13,7,1  # User 13 purchased 1 Graphic Tee
-14,5,1  # User 14 purchased 1 Coffee Maker
-14,9,1  # User 14 purchased 1 Portable Charger
-15,10,1  # User 15 purchased 1 Gaming Laptop
-16,3,1  # User 16 purchased 1 Running Shoes
-16,2,1  # User 16 purchased 1 Blue Jeans
-17,1,1  # User 17 purchased 1 Red T-Shirt
-17,4,1  # User 17 purchased 1 Smartwatch
-18,5,2  # User 18 purchased 2 Coffee Makers
-19,6,1  # User 19 purchased 1 Wireless Headphones
-19,10,1  # User 19 purchased 1 Gaming Laptop
-20,8,1  # User 20 purchased 1 Winter Jacket
-21,2,1  # User 21 purchased 1 Blue Jeans
-22,3,2  # User 22 purchased 2 Running Shoes
-23,4,1  # User 23 purchased 1 Smartwatch
-24,5,1  # User 24 purchased 1 Coffee Maker
-25,6,1  # User 25 purchased 1 Wireless Headphones
-26,7,1  # User 26 purchased 1 Graphic Tee
-27,8,1  # User 27 purchased 1 Winter Jacket
-28,9,1  # User 28 purchased 1 Portable Charger
-29,10,1  # User 29 purchased 1 Gaming Laptop
-30,1,1  # User 30 purchased 1 Red T-Shirt
-31,2,1  # User 31 purchased 1 Blue Jeans
-32,3,1  # User 32 purchased 1 Running Shoes
-33,4,1  # User 33 purchased 1 Smartwatch
-34,5,1  # User 34 purchased 1 Coffee Maker
-35,6,1  # User 35 purchased 1 Wireless Headphones
-36,7,1  # User 36 purchased 1 Graphic Tee
-37,8,1  # User 37 purchased 1 Winter Jacket
-38,9,1  # User 38 purchased 1 Portable Charger
-39,10,1  # User 39 purchased 1 Gaming Laptop
-40,1,1  # User 40 purchased 1 Red T-Shirt
-41,2,1  # User 41 purchased 1 Blue Jeans
-42,3,1  # User 42 purchased 1 Running Shoes
-43,4,1  # User 43 purchased 1 Smartwatch
-44,5,1  # User 44 purchased 1 Coffee Maker
-45,6,1  # User 45 purchased 1 Wireless Headphones
-46,7,1  # User 46 purchased 1 Graphic Tee
-47,8,1  # User 47 purchased 1 Winter Jacket
-48,9,1  # User 48 purchased 1 Portable Charger
-49,10,1  # User 49 purchased 1 Gaming Laptop
-50,1,1  # User 50 purchased 1 Red T-Shirt
+1,1,1
+1,2,1
+1,3,2
+2,2,1
+2,4,1
+3,5,1
+3,6,1
+4,1,1
+4,3,1
+4,5,3
+5,7,1
+5,8,1
