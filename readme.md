@@ -58,8 +58,9 @@ This project implements a product recommendation system for an e-commerce platfo
 2. Click on "Get Recommendations" to view the recommended products. 
 
 ## Screenshots
-![Homepage](images/homepage.png)
 ![Recommendations Page](images/recommendations.png)
+![Homepage](images/homepage.png)
+
 
 ## Contributing
 If you would like to contribute to this project, please fork the repository and submit a pull request.
