@@ -1,7 +1,7 @@
 # E-commerce Product Recommendation System
 
 ## Project Overview
-This project implements a product recommendation system for an e-commerce platform. The system utilizes collaborative filtering and content-based filtering techniques to provide personalized product recommendations to users based on their purchase history.
+This project implements a product recommendation system for an e-commerce platform. The system utilizes collaborative filtering, content-based filtering and hybird approach techniques to provide personalized product recommendations to users based on their purchase history.
 
 ## Features
 - **Collaborative Filtering**: Recommends products based on the purchase behavior of similar users.
@@ -67,11 +67,11 @@ If you would like to contribute to this project, please fork the repository and 
 
 ## Future Enhancements
 
-- **More Data**: I plan to add more file to enhance the collaborative filtering aspect of our recommendation system.
+- **More Data**: I plan to add more file to enhance the model aspect of our recommendation system.
   
-- **Clean UI**: Improving the user interface (UI) for your e-commerce product recommendation system can significantly enhance user experience and engagement.
+- **Clean UI**: Improving the user interface (UI) for my e-commerce product recommendation system can significantly enhance user experience and engagement.
 
-- **Feedback Mechanism**: Implement a way for users to provide feedback on the recommendations, which can help refine the system.
+- **Feedback Mechanism**: Implement a way for users to provide feedback on the recommendations, which can help me refine the system.
 
 - **Explainability**: Work on explaining the reasoning behind recommendations, which can enhance user trust and satisfaction.
 
