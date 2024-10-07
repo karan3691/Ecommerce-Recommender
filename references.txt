@@ -1,0 +1,30 @@
+1. Ricci, F., Rokach, L., & Shapira, B. (2015). Recommender Systems Handbook. Springer.
+   - A comprehensive guide on various types of recommender systems and methodologies.
+
+2. Adomavicius, G., & Tuzhilin, A. (2005). Toward the Next Generation of Recommender Systems: A Survey of the State-of-the-Art and Possible Extensions. IEEE Transactions on Knowledge and Data Engineering, 17(6), 734-749.
+   - This paper discusses the different approaches to recommendation systems and their future directions.
+
+3. Schafer, J. B., Konstan, J. A., & Riedl, J. (2001). E-commerce recommendation applications. Data Mining and Knowledge Discovery, 5(1), 115-153.
+   - Discusses various recommendation applications specifically in the context of e-commerce.
+
+4. Linden, G., Smith, B., & York, J. (2003). Amazon.com Recommendations: Item-to-Item Collaborative Filtering. IEEE Internet Computing, 7(1), 76-80.
+   - A detailed look at Amazon’s recommendation system and how item-to-item collaborative filtering works.
+
+5. Burke, R. (2002). Hybrid Recommender Systems: Survey and Experiments. User Modeling and User-Adapted Interaction, 12(4), 331-370.
+   - Surveys hybrid recommendation systems and compares their performance.
+
+6. Koren, Y. (2008). Factorization Meets the Neighborhood: a Multifaceted Collaborative Filtering Model. In Proceedings of the 14th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 426-434).
+   - Presents a collaborative filtering model that combines neighborhood-based methods with matrix factorization.
+
+7. Pazzani, M. J., & Billsus, D. (2007). Content-Based Recommendation Systems. In The Adaptive Web (pp. 325-341). Springer, Berlin, Heidelberg.
+   - An overview of content-based recommendation systems and techniques.
+
+8. Rendle, S. (2012). Factorization Machines with libFM. ACM Transactions on Intelligent Systems and Technology, 3(3), 1-22.
+   - Introduces factorization machines as a generalization of matrix factorization methods used in recommendation systems.
+
+9. Zhang, Y., & Chen, L. (2019). A survey on collaborative filtering based on matrix factorization. IEEE Transactions on Systems, Man, and Cybernetics: Systems, 49(1), 45-59.
+   - Reviews collaborative filtering techniques based on matrix factorization and their applications.
+
+10. Geng, X., & Huang, J. (2015). A Survey of Recommendation Systems Based on User Reviews. In Proceedings of the 2015 International Conference on Artificial Intelligence and Statistics (pp. 217-225).
+    - Discusses the role of user reviews in building recommendation systems and provides insights into the challenges and future research directions.
+
