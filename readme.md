@@ -6,6 +6,7 @@ This project implements a product recommendation system for an e-commerce platfo
 ## Features
 - **Collaborative Filtering**: Recommends products based on the purchase behavior of similar users.
 - **Content-Based Filtering**: Recommends products based on the attributes of the products the user has previously purchased.
+- **Hybrid Approach**: Recommends products by combining Collaborative and Content-Based Filtering.
 - **User-Friendly Interface**: A web application built with Flask for easy interaction and recommendations.
 
 ## Technologies Used
@@ -50,27 +51,29 @@ This project implements a product recommendation system for an e-commerce platfo
 1. `users.csv`: Contains user information.
 2. `products.csv`: Contains product details such as name, category, description, price, and rating.
 3. `purchases.csv`: Contains user purchase history.
+4. `browsing_history`: Contains user browsing history.
 
 ## Usage
-1. Enter a user ID and select a recommendation method (collaborative or content-based).
+1. Enter a user ID and select a recommendation method (collaborative, content-based or hybrid approach).
 2. Click on "Get Recommendations" to view the recommended products. 
+
+## Screenshots
+![Homepage](images/homepage.png)
+![Recommendations Page](images/recommendations.png)
 
 ## Contributing
 If you would like to contribute to this project, please fork the repository and submit a pull request.
 
 ## Future Enhancements
 
-- **Expanded User Base**: I plan to add more users to the `users.csv` file to enhance the collaborative filtering aspect of our recommendation system.
+- **More Data**: I plan to add more file to enhance the collaborative filtering aspect of our recommendation system.
   
-- **Diverse Product Offerings**: Additional products will be added to the `products.csv` file, providing a broader range of recommendations and improving user experience.
+- **Clean UI**: Improving the user interface (UI) for your e-commerce product recommendation system can significantly enhance user experience and engagement.
 
-- **Enhanced Purchase Data**: The `purchases.csv` file will be updated with more transaction records to better analyze user behavior and improve recommendation accuracy.
+- **Feedback Mechanism**: Implement a way for users to provide feedback on the recommendations, which can help refine the system.
 
-## Known Issues
+- **Explainability**: Work on explaining the reasoning behind recommendations, which can enhance user trust and satisfaction.
 
-In collaborative fitlerting it shows "no recommendation for this users" and is mostly happening with most of user_id.
-
-POSSIBLE ISSUES: Data Integrity Or Data Insufficient
 
 
    
