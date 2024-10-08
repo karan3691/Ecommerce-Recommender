@@ -1,73 +1,53 @@
-from sklearn.metrics.pairwise import cosine_similarity
 import pandas as pd
 
 def collaborative_filtering(user_id, purchases, browsing_history, products):
-    user_purchases = purchases[purchases['user_id'] == user_id]
-    user_browsing = browsing_history[browsing_history['user_id'] == user_id]
+    user_purchases = purchases[purchases['user_id'] == user_id]['product_id'].unique()
+    other_users = purchases[purchases['product_id'].isin(user_purchases)]['user_id'].unique()
+    other_purchases = purchases[purchases['user_id'].isin(other_users)]['product_id'].unique()
 
-    if user_purchases.empty and user_browsing.empty:
-        return pd.DataFrame()  # If no history, return empty DataFrame
-
-    # Preparing for feature matrix
-    purchased_product_ids = user_purchases['product_id'].unique()
-    browsed_product_ids = user_browsing['product_id'].unique()
-    product_features = products.set_index('product_id')[['price', 'rating']]
-
-    # Creating feature vector based on purchases and browsing
-    user_feature_vector = pd.DataFrame(0, index=[0], columns=product_features.index)
-    user_feature_vector.loc[0, purchased_product_ids] = 1
-    user_feature_vector.loc[0, browsed_product_ids] = 1
-
-    similarity = cosine_similarity(user_feature_vector, product_features.T)
-
-    # For recommendations based on the cosine similarity scores
-    recommended_indices = similarity.argsort()[0][-5:][::-1]
-    recommended_products = product_features.index[recommended_indices].tolist()
-
-    recommendations_df = products[products['product_id'].isin(recommended_products)].copy()
-    recommendations_df['source'] = recommendations_df['product_id'].apply(
-        lambda x: 'Purchased' if x in purchased_product_ids else 'Browsed' if x in browsed_product_ids else 'N/A'
-    )
-
-    return recommendations_df
+    # Recommendations that exclude the user's own purchases
+    recommendations = products[~products['product_id'].isin(user_purchases) & 
+                                products['product_id'].isin(other_purchases)]
+    recommendations['source'] = 'Collaborative Filtering'
+    return recommendations
 
 def content_based_filtering(user_id, purchases, browsing_history, products):
-    user_purchases = purchases[purchases['user_id'] == user_id]
-    user_browsing = browsing_history[browsing_history['user_id'] == user_id]
+    user_history = browsing_history[browsing_history['user_id'] == user_id]['product_id'].unique()
+    user_products = products[products['product_id'].isin(user_history)]
 
-    purchased_product_ids = user_purchases['product_id'].unique()
-    browsed_product_ids = user_browsing['product_id'].unique()
-
-    # Combine the purchased and browsed product IDs for exclusion
-    excluded_products = set(purchased_product_ids).union(set(browsed_product_ids))
-
-    # Calculate total purchases for each product
-    product_ratings = purchases.groupby('product_id')['quantity'].sum().reset_index()
-    product_ratings.columns = ['product_id', 'total_purchases']
-    top_products = product_ratings.sort_values(by='total_purchases', ascending=False)
-
-    # Exclude products that the user has already purchased
-    recommendations = top_products[~top_products['product_id'].isin(purchased_product_ids)]
-
-    recommendations_df = pd.DataFrame()
-
-    if not recommendations.empty:
-        recommended_products = recommendations['product_id'].head(5).tolist()
-        recommendations_df = products[products['product_id'].isin(recommended_products)].copy()
+    if not user_products.empty:
+        recommendations = products[products['category'].isin(user_products['category']) &
+                                    ~products['product_id'].isin(user_history)]
     else:
-        # If there are no new products to recommend, include all products with proper sources
-        recommendations_df = products.copy()
+        recommendations = pd.DataFrame()  # Return empty if no products in user history
 
-    # Update the source column based on purchases and browsing history
-    recommendations_df['source'] = recommendations_df['product_id'].apply(
-        lambda x: 'Purchased' if x in purchased_product_ids else 'Browsed' if x in browsed_product_ids else 'N/A'
-    )
+    recommendations['source'] = 'Content-Based Filtering'
+    return recommendations
 
-    # Debugging output
-    print("Purchased Product IDs:", purchased_product_ids)
-    print("Browsed Product IDs:", browsed_product_ids)
-    print("Excluded Products:", excluded_products)
-    print("Recommendations DataFrame:\n", recommendations_df)
+def hybrid_recommendation(user_id, purchases, browsing_history, products):
+    collaborative_recommendations = collaborative_filtering(user_id, purchases, browsing_history, products)
+    content_based_recommendations = content_based_filtering(user_id, purchases, browsing_history, products)
+    
+    # Combine collaborative and content-based recommendations
+    hybrid_recommendations = pd.concat([collaborative_recommendations, content_based_recommendations]).drop_duplicates()
 
-    return recommendations_df
+    # Unseen products (products user hasn't interacted with)
+    user_history = browsing_history[browsing_history['user_id'] == user_id]['product_id'].unique()
+    unseen_products = products[~products['product_id'].isin(user_history)]
+    
+    # Add random unseen products to diversify recommendations
+    if len(unseen_products) > 5:
+        random_recommendations = unseen_products.sample(n=5)
+    else:
+        random_recommendations = unseen_products  # Get all if less than 5
+    random_recommendations['source'] = 'Random Unseen Products'
+    
+    # Add popular products (most purchased)
+    popular_products = purchases['product_id'].value_counts().index[:5]
+    popular_recommendations = products[products['product_id'].isin(popular_products)]
+    popular_recommendations['source'] = 'Popular Products'
+    
+    # Combine all recommendations and drop duplicates based on Product ID
+    all_recommendations = pd.concat([hybrid_recommendations, random_recommendations, popular_recommendations]).drop_duplicates(subset=['product_id'])
 
+    return all_recommendations

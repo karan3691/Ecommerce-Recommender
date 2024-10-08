@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Recommendations</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <title>Recommendations</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container"> <!-- Added a container div -->
         <h1>Product Recommendations</h1>
-        
-        {% if message %}
-            <p class="message">{{ message }}</p>
-        {% else %}
-            <table>
+
+        {% if interacted_products %}
+            <h2>Products You Have Already Purchased or Browsed</h2>
+            <table class="product-table">
                 <thead>
                     <tr>
                         <th>Product ID</th>
@@ -24,20 +23,44 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for recommendation in recommendations %}
+                    {% for product in interacted_products %}
                         <tr>
-                            <td>{{ recommendation.product_id }}</td>
-                            <td>{{ recommendation.product_name }}</td>
-                            <td>${{ recommendation.price }}</td>
-                            <td>{{ recommendation.rating }}</td>
-                            <td>{{ recommendation.source }}</td>
+                            <td>{{ product.product_id }}</td>
+                            <td>{{ product.product_name }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.rating }}</td>
+                            <td>{{ product.source }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
         {% endif %}
-        
-        <a href="/" class="back-button">Back to Home</a>
-    </div>
+
+        {% if recommended_products %}
+            <h2>Recommended Products</h2>
+            <table class="product-table">
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in recommended_products %}
+                        <tr>
+                            <td>{{ product.product_id }}</td>
+                            <td>{{ product.product_name }}</td>
+                            <td>{{ product.price }}</td>
+                            <td>{{ product.rating }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% endif %}
+
+        <a href="/" class="button">Back to Home</a> <!-- Button styled consistently -->
+    </div> <!-- Closing container div -->
 </body>
 </html>

@@ -1,4 +1,3 @@
-/* styles.css */
 body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
@@ -7,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 400px;
+    max-width: 800px; /* Updated for larger containers */
     margin: auto;
     padding: 20px;
     background: white;
@@ -17,6 +16,7 @@ body {
 
 h1, h2 {
     text-align: center;
+    color: #333;
 }
 
 input[type="number"], select {
@@ -27,7 +27,8 @@ input[type="number"], select {
     border-radius: 4px;
 }
 
-button {
+button, a.button {
+    display: inline-block; /* Adjusting for consistent button styling */
     width: 100%;
     padding: 10px;
     background-color: #007BFF;
@@ -35,10 +36,29 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    text-align: center;
+    text-decoration: none; /* For anchor tags */
 }
 
-button:hover {
+button:hover, a.button:hover {
     background-color: #0056b3;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+table th, table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table th {
+    background-color: #f2f2f2;
+    color: #333;
 }
 
 ul {
@@ -50,61 +70,4 @@ li {
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
     text-align: center;
-}
-
-/* styles.css */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 600px;
-    margin: auto;
-    padding: 20px;
-    background: white;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
-    text-align: center;
-}
-
-.message {
-    text-align: center;
-    color: red; /* Change color if needed */
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 1px solid #ddd;
-}
-
-th {
-    background-color: #f2f2f2;
-}
-
-.back-button {
-    display: block;
-    margin-top: 20px;
-    text-align: center;
-    padding: 10px;
-    background-color: #007BFF;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-}
-
-.back-button:hover {
-    background-color: #0056b3;
 }
