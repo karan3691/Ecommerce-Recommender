@@ -29,7 +29,7 @@ def hybrid_recommendation(user_id, purchases, browsing_history, products):
     content_based_recommendations = content_based_filtering(user_id, purchases, browsing_history, products)
     
     # Combine collaborative and content-based recommendations
-    hybrid_recommendations = pd.concat([collaborative_recommendations, content_based_recommendations]).drop_duplicates()
+    hybrid_recommendations = pd.concat([collaborative_recommendations, content_based_recommendations]).drop_duplicates('prduct_id')
 
     # Unseen products (products user hasn't interacted with)
     user_history = browsing_history[browsing_history['user_id'] == user_id]['product_id'].unique()
@@ -46,8 +46,12 @@ def hybrid_recommendation(user_id, purchases, browsing_history, products):
     popular_products = purchases['product_id'].value_counts().index[:5]
     popular_recommendations = products[products['product_id'].isin(popular_products)]
     popular_recommendations['source'] = 'Popular Products'
+
+    print(all_recommendations[all_recommendations.duplicated(subset=['product_id'])])
+
     
     # Combine all recommendations and drop duplicates based on Product ID
     all_recommendations = pd.concat([hybrid_recommendations, random_recommendations, popular_recommendations]).drop_duplicates(subset=['product_id'])
+
 
     return all_recommendations
