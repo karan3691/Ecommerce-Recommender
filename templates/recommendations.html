@@ -7,16 +7,25 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <div class="container"> <!-- Added a container div -->
+    <div class="container">
         <h1>Product Recommendations</h1>
 
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="error">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
         {% if interacted_products %}
-            <h2>Products You Have Already Purchased or Browsed</h2>
+            <h2>Your Interactions</h2>
             <table class="product-table">
                 <thead>
                     <tr>
                         <th>Product ID</th>
                         <th>Product Name</th>
+                        <th>Description</th>
                         <th>Price</th>
                         <th>Rating</th>
                         <th>Source</th>
@@ -27,7 +36,8 @@
                         <tr>
                             <td>{{ product.product_id }}</td>
                             <td>{{ product.product_name }}</td>
-                            <td>{{ product.price }}</td>
+                            <td>{{ product.description }}</td>
+                            <td>${{ "%.2f"|format(product.price|float) }}</td>
                             <td>{{ product.rating }}</td>
                             <td>{{ product.source }}</td>
                         </tr>
@@ -43,8 +53,11 @@
                     <tr>
                         <th>Product ID</th>
                         <th>Product Name</th>
+                        <th>Description</th>
                         <th>Price</th>
                         <th>Rating</th>
+                        <th>Score</th>
+                        <th>Source</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,15 +65,18 @@
                         <tr>
                             <td>{{ product.product_id }}</td>
                             <td>{{ product.product_name }}</td>
-                            <td>{{ product.price }}</td>
+                            <td>{{ product.description }}</td>
+                            <td>${{ "%.2f"|format(product.price|float) }}</td>
                             <td>{{ product.rating }}</td>
+                            <td>{{ "%.2f"|format(product.score|float) }}</td>
+                            <td>{{ product.source }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
             </table>
         {% endif %}
 
-        <a href="/" class="button">Back to Home</a> <!-- Button styled consistently -->
-    </div> <!-- Closing container div -->
+        <a href="/" class="button">Back to Home</a>
+    </div>
 </body>
 </html>

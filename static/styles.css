@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    max-width: 800px; /* Updated for larger containers */
+    max-width: 1000px; /* Increased for wider tables */
     margin: auto;
     padding: 20px;
     background: white;
@@ -28,7 +28,7 @@ input[type="number"], select {
 }
 
 button, a.button {
-    display: inline-block; /* Adjusting for consistent button styling */
+    display: inline-block;
     width: 100%;
     padding: 10px;
     background-color: #007BFF;
@@ -37,28 +37,36 @@ button, a.button {
     border-radius: 4px;
     cursor: pointer;
     text-align: center;
-    text-decoration: none; /* For anchor tags */
+    text-decoration: none;
 }
 
 button:hover, a.button:hover {
     background-color: #0056b3;
 }
 
-table {
+.product-table {
     width: 100%;
     border-collapse: collapse;
     margin: 20px 0;
 }
 
-table th, table td {
+.product-table th, .product-table td {
     padding: 12px;
     border: 1px solid #ddd;
-    text-align: center;
+    text-align: left; /* Changed for better readability */
 }
 
-table th {
-    background-color: #f2f2f2;
-    color: #333;
+.product-table th {
+    background-color: #007BFF;
+    color: white;
+}
+
+.product-table tr:nth-child(even) {
+    background-color: #f2f2f2; /* Zebra striping */
+}
+
+.product-table tr:hover {
+    background-color: #e9ecef; /* Hover effect */
 }
 
 ul {
@@ -69,5 +77,10 @@ ul {
 li {
     padding: 10px 0;
     border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+
+.error {
+    color: red;
     text-align: center;
 }
