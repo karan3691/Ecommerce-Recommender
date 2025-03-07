@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css', _v=0.1) }}">
     <title>E-commerce Recommendations</title>
 </head>
 <body>
@@ -11,10 +11,11 @@
         <h1>E-Commerce Recommendations</h1>
         <form action="/recommend" method="post">
             <input type="number" name="user_id" placeholder="User ID" required>
-            <select name="algorithm" required>
-                <option value="collaborative">Collaborative Filtering</option>
-                <option value="content-based">Content-Based Filtering</option>
-                <option value="hybrid">Hybrid Approach</option>
+            <select name="algorithm" class="form-select">
+              <option value="collaborative">Collaborative Filtering</option>
+              <option value="content-based">Content-Based</option>
+              <option value="hybrid">Hybrid Approach</option>
+              <option value="multi-modal">Multi-Modal (New!)</option>
             </select>
             <button type="submit">Get Recommendations</button>
         </form>

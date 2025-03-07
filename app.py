@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
 import pandas as pd
-from model import collaborative_filtering, content_based_filtering, hybrid_recommendation
+import torch
+from model import collaborative_filtering, content_based_filtering, hybrid_recommendation, MultiModalModel
 import logging
 
 app = Flask(__name__)
@@ -9,10 +10,15 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 
 # Load data
-users = pd.read_csv('users.csv')
-products = pd.read_csv('products.csv')
-purchases = pd.read_csv('purchases.csv')
-browsing_history = pd.read_csv('browsing_history.csv')
+users = pd.read_csv('users_expanded.csv')
+products = pd.read_csv('products_expanded.csv')
+product_images = pd.read_csv('product_images_expanded.csv')
+# Initialize multi-modal model
+num_users = users['user_id'].nunique()
+num_products = products['product_id'].nunique()
+model = MultiModalModel(num_users, num_products)
+purchases = pd.read_csv('purchases_expanded.csv')
+browsing_history = pd.read_csv('browsing_history_expanded.csv')
 
 @app.route('/')
 def index():
@@ -46,6 +52,29 @@ def get_recommendations():
             recommendations = content_based_filtering(user_id, purchases, browsing_history, products)
         elif algorithm == 'hybrid':
             recommendations = hybrid_recommendation(user_id, purchases, browsing_history, products)
+        elif algorithm == 'multi-modal':
+            # Prepare multi-modal inputs
+            # Adjust product IDs to be 0-indexed for the embedding layer
+            product_ids = torch.LongTensor(products['product_id'].values) - 1
+            texts = products['description'].tolist()
+            
+            # Generate recommendations using all available modalities
+            with torch.no_grad():
+                outputs = model(
+                    torch.LongTensor([user_id - 1]),
+                    product_ids,
+                    texts,
+                    edge_index=None,
+                    product_images_df=product_images
+                )
+            
+            # Calculate recommendation scores
+            scores = outputs.mean(dim=1).cpu().numpy()
+            
+            # Create recommendations dataframe
+            recommendations = products.copy()
+            recommendations['score'] = scores
+            recommendations['source'] = 'Multi-Modal'
         else:
             flash('Invalid algorithm selected!')
             return redirect(url_for('index'))
